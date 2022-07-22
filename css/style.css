@@ -1,0 +1,602 @@
+* {box-sizing: border-box;}
+@font-face {
+    font-family: myfont;
+    src: url(../webfonts/ufonts.com_tw-cen-mt.ttf);
+  }
+html {font-size: 62.5%;}  /* AGGIUNTO FONT-SIZE per avere em e rem con numeri divisibili per 10 (più lineare nel dimensionamento | GD) */
+body {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2;
+    font-family: myfont;
+}
+h1 {
+    font-size: 3.7rem;
+    text-align: center;
+    line-height: 1.5;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 2.2rem;
+    padding: 1em 0;
+    font-weight: bold;
+}
+h4{
+    font-size: 1.8rem;
+    color: orangered;
+    display: inline;
+}
+.grey{
+    color: grey;
+}
+.flex-container h4 > span{
+    padding-left: 1em;
+}
+span {
+    color: #938463;
+}
+.orange {
+    color: orangered;
+    font-weight: bold;
+}
+hr {
+    width: 25%;
+    margin: 3em auto;
+}
+.container {
+    margin: 0 auto;
+    width: 90%;
+    z-index: 20;                        /* dovevo farlo per non oscurare il contenuto, ho dovuto dargli position relative (non cambia nulla) | GD */
+}
+.menu {
+    margin: 0 auto;
+    width: 73%;
+    padding: 1em 0;
+}
+button {
+    font-family: myfont;
+}
+
+
+/*                       HERO IMAGE*/
+#hero-area, #blog, .container, #news, .textWrapper {          /* SERVE PER OVERLAY | GD */
+    position: relative;
+} 
+#hero-area::before, #blog::before, #news::before {          /* OVERLAY SU TUTTO | GD */                    
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/overlay-pattern.png) #000000;
+    opacity: 0.3;
+    z-index: 1;
+}
+#hero-area img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+/*                                  HEADER */
+header {
+    background-color: rgba(255, 255, 255, 0.773);
+    position: relative;
+    bottom: 65px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+header nav ul li {
+    list-style: none;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(75, 75, 75);
+    font-size: 1.7rem;
+}
+header nav ul li a:hover {
+    border-bottom: 2px solid orangered;
+}
+input#menuButton {
+    display: none;
+}
+input#menuButton:checked ~ nav {
+    height: 250px;
+    margin-top: 1em;
+}
+label#menuMobile {
+    font-size: 2rem;
+    color: orangered;
+    cursor: pointer;
+}
+/* 
+                                 SLIDER SECTION*/
+#slider {                       /* dimensionamento | GD*/
+    padding-bottom: 2em;
+}
+#slider-wrap{
+   transition: margin-left 1s;
+}
+.images {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.slide {
+    display: inline-block;
+    width: auto;       /* VIVA MANUEL */ 
+}
+.slider .container  {
+    padding: 2em;
+}
+.images img {
+    margin-right: 1em;
+    border-radius: 5px;
+}
+.texPlusArrow {
+    display: flex;
+    justify-content: space-between;
+}
+.arrow{
+    display: flex;
+    align-items: center;
+}
+.pallini {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+#primoPallino,
+#secondoPallino,
+#terzoPallino {
+    border: none;
+    background: none;
+    color: rgba(128, 128, 128, 0.462);
+    font-size: .8em;
+}
+#primoPallino:hover,
+#secondoPallino:hover,
+#terzoPallino:hover {
+    color: orangered;
+}
+#freccia {
+    background: none;
+    border: none;
+    color: rgba(128, 128, 128, 0.448);
+    font-size: 2em;
+    
+}
+#freccia:hover{
+    color: orangered;
+}
+/*                                  SECTION ABOUT US*/
+#about,  #news {                                 
+    padding: 7em 0;
+}
+#about {                             /* IL BG va inserito nella section, per essere coerente con tutti i BG | GD */
+    background-color: #F6F6F6;
+    margin: 0 auto;
+    width: 100%;
+}
+#imgabout{
+    border: 1px solid white;
+    border-radius: 100px;
+}
+#sezabout{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+#sezabout p{
+    padding: 0 1em;
+}
+
+/*                                 SECTION BLOG */
+#blog {
+    background-image: url(../images/blog/blog-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 100px;
+    padding: 7em 0 10em 0;
+   }
+   #blog h1 {
+    color: white;
+   }
+   .textWrapper hr {
+       width: 30%;
+       border-style: solid;
+       margin-block-start: 1em;
+       margin-block-end: 1em;
+       border-color: gainsboro;
+   }
+   .textWrapper h3 {
+       color: #000000c3;
+   }
+   .wrapper {
+       display: flex;
+       flex-direction: column;
+       background-color: white;
+   }
+        .imgWrapper {
+            height: 300px;
+            width: 100%;
+            max-width: 120%;
+            flex: 1;
+            overflow: hidden;
+        }
+            .imgWrapper img {
+                width: 100%;
+                height: auto;
+            }
+            .imgWrapper:hover img {                             
+               animation: zoom 2s;
+               animation-fill-mode:forwards;
+            }
+            @keyframes zoom {
+                   100% {
+                       transform: scale(1.2) rotate(10deg); 
+                   }
+               }
+        .textWrapper {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+    .textWrapper p {
+        padding: 0 2em;
+        color: gray;
+   }
+   .textWrapper h3 {
+       padding: 0 2.5em;
+   }
+   @media screen and (min-width: 768px) {
+       .wrapper {
+           flex-direction: row;
+       }
+       .imgWrapper {
+           width: 50%;
+       }
+            .imgWrapper img {
+                height: 300px;
+            }
+       .textWrapper {
+           width: 50%;
+       }
+       .invert .textWrapper {
+           order: 1;
+       }
+       .invert .imgWrapper {
+           order: 2;
+       }
+       .textWrapper::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+            background: #fff;
+            transform: rotate(45deg);
+            margin-left: -15px;
+        }
+        .invert .textWrapper::before {
+            left: 100%;
+            right: 100%; 
+        }
+   }    
+   @media screen and (min-width:1024px) {
+       .containerWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+       }
+       .wrapper {
+           width: 50%;
+       }
+       .imgWrapper {
+           height: 250px;
+       }
+       .imgWrapper img {
+           height: 250px;
+       }
+       .textWrapper {
+           height: 250px;
+       }
+       #secondoPallino{
+        display: none;
+       }
+   }
+    .destra2 {
+        display: flex;
+        margin-top: 3em;
+    }
+    @media screen and (min-width:768px){
+        .destra2 {
+            justify-content: center;
+        }
+        
+    }
+    @media screen and (min-width:1024px){
+        .destra2 {
+            justify-content: flex-end;
+            margin: 0;
+        }
+    }
+    .info {
+        padding: 3.1rem 10.8rem;
+        background-color: orangered;
+        color: white;
+        border: 1px solid orangered;
+    }
+    .info:hover{
+        background-color: rgba(255, 255, 255, 0);
+        color: orangered;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+/*                                  SECTION MENU*/
+#price, #contacts { padding: 5em 0;}
+.indexmenu {
+    text-align: center;
+}
+.border-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 3rem;
+}
+.destra{
+    display: flex;
+    justify-content: flex-end;
+}
+.button-menu {
+    margin-top: 3rem;
+    padding: 3.1rem 10.8rem;
+    background-color: white;
+    color: orangered;
+    border: 1px solid orangered;
+}
+button:hover{
+    background-color: orangered;
+    color: white;
+    cursor: pointer;
+}
+
+/*                                  SECTION NEWS*/
+#news {                                          /* ho dato le stesso padding di altre sezioni, per linearità e risparmiare BEN 1 RIGA DI CODICE | GD */
+    background-image: url(../images/subscribe-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.newsMenu {
+    text-align: center;
+    color: white;
+}
+.newsForm {
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+.newsForm input{
+    flex: 3;
+    padding: 1.5em;
+    border: none;
+}
+.newsForm button {
+    flex: 1;
+    border: none;
+    color: white;
+    background-color: #7EC3BB;
+}
+.newsForm button:hover{
+    background-color: rgb(103, 165, 158);
+    cursor: pointer;
+}
+
+/*                                  SECTION CONTACTS*/
+#contacts form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#contacts h2 {
+    margin-bottom: 1em;
+}
+#contacts input {
+    margin-bottom: 1em;
+    padding: 1em;                   /* ridimensionato GD*/
+    border: 2px solid gainsboro
+}
+#contacts textarea {
+    border: 2px solid gainsboro
+}
+#contacts form button {
+    width: 50%;
+    align-self: flex-end;
+    padding: 1.5em 2em;
+    margin-top: 2em;
+    border: none;
+    background-color: orangered;
+    color: white;
+}
+.space {
+    padding-bottom: 1em;
+}
+@media screen and (max-width:768px) {
+    #contacts form button {
+        align-self: center;
+    } 
+} 
+
+/*                   PRE-FOOTER      FOOTER*/
+#prefooter { padding: 3em 0; }
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.flex-container > div{
+    flex: 1;
+}
+.flex-container > div:nth-child(2) h4 {
+    font-weight: bold;
+}
+.flex-container > div:nth-child(2) {
+    padding-right: 3.5em;
+}
+.flex-container img {
+    margin: 1em 1em 1em 0;
+}
+footer {
+    text-align: center;
+    padding: 1.5em 0 1em;
+    background-color: gainsboro; 
+    margin-top: 1em;
+}
+.space .fas{ margin-right: 2em; font-size: 2rem; color: rgb(90, 87, 87);}
+ .fab {     
+    font-size: 2.5em;
+    margin-right: .5em;
+    background: white;
+    color: rgb(182, 179, 179);
+ }
+.fab:hover {
+    color: orangered;
+    cursor: pointer;
+}
+footer p {
+    font-size: small;
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
+
+/* MEDIA QUERY -- BLOG */
+
+    /* MEDIA QUERY -- NAV + MENU' */
+@media screen and (max-width: 840px) {
+    header nav {
+        height: 0;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        transition: height 500ms ease-out;
+    }
+    .orangeredBorder {
+        border-bottom: 2px solid orangered;
+    }
+    header nav ul li {
+        margin-top: .5em;
+    }
+    .border-bottom {
+       display: flex;
+       flex-direction: column;
+    }
+    .prezzo{
+        padding: 2rem 0;
+    }
+}
+@media screen and (min-width:840px ) {
+    label#menuMobile {
+        display: none;
+    }
+    header nav ul li {
+        display: inline;
+        margin-right: 1em;
+    }
+    header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    } 
+    header nav ul li {
+        border: none;
+    }
+    .prezzo {
+        flex: 1;
+        border-bottom: dotted 1px grey;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        align-self: baseline;
+    }
+}
+
+/*    MEDIA QUERY SLIDERINO  +  BUTTONCINO      */
+@media screen and (max-width:780px){
+    #slider {
+        padding: 1em;
+    }
+
+}
+
+/************Footer*********/
+@media screen and (max-width:768px){
+    .flex-container{
+        flex-direction: column;
+    }
+}
+
+/* PROVE CONTAINER FISSO */
+@media screen and (min-width:768px) {
+    .container{
+        width: 720px;
+    }
+}
+@media screen and (min-width:1024px) {
+    .container {
+        width: 970px;
+    }
+    .flex-container {
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+    .info {
+        width: 292.5px;
+    }
+}
+
+/*********TASKS**********/
+/*
+1. Slider più piccolo, aggiungere la freccia e i pallini sotto (adiener, giandomenico)
+2. menu dei prezzi aggiustare margini 
+2. la nav diventa responsive sotto i 700 pixel (adiener)
+3. aggiustare la sezione blog che rompe il sito (adiener, giandomenico)
+4. controllare margini e padding generale (marco)
+5. menu completo (manuel)
+6. Abbiamo reso responsive lo slider (adiener, marco, manuel)
+7. Ridimensionamento di margin e padding generale 
+8. aggiunte le media query per il responsive
+*/
+
+/************TASK2***********/
+
+/*
+1. abbiamo aggiustato FINALMENTE la section blog (fatta anche meglio di quella originale) by adiener
+2. aggiustato vari padding e margini
+3. titoli e icone
+/*
